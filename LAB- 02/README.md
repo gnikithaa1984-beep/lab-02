@@ -1,129 +1,183 @@
-# Backend Lab 2 – SQLite Database and CRUD Routes
+# Lab 2: Books CRUD API Using Node.js, Express, and SQLite
 
-## Project Description
-This project demonstrates how to create a backend application using Node.js, Express.js, and SQLite. It performs CRUD operations (Create, Read, Update, and Delete) on a Book database.
+## Student Details
+
+- **Name:** A.Yogeshwari
+- **Registration Number:** 252U1R9011
+- **Section:** CSE GAI-2A
+- **Course:** Backend Development Fundamentals
+- **Lab Number:** 02
+
+## Live Deployment
+https://lab-02-qzaj.onrender.com
+
+## Objective
+
+To develop a RESTful Books API using Node.js, Express.js, and SQLite to perform CRUD (Create, Read, Update, and Delete) operations on book records.
 
 ## Technologies Used
+
 - Node.js
 - Express.js
 - SQLite
-- SQLite3
+- JavaScript
+- npm
 - Postman
-- Nodemon
+- Visual Studio Code
+- Git and GitHub
 
 ## Project Structure
 
 ```text
-LAB-02/
-│
+Lab-02/
+├── screenshots/
+│   ├── DELETE.png
+│   ├── ERROR.png
+│   ├── GET_ALL.png
+│   ├── GET1.png
+│   ├── POST.png
+│   └── PUT.png
+├── .gitignore
 ├── app.js
 ├── books.db
+├── books.sql
 ├── package.json
 ├── package-lock.json
 └── README.md
 ```
 
-## Installation
+## Installation and Setup
 
-Install the required packages using the following commands:
+### Prerequisites
 
-```bash
-npm init -y
-npm install express sqlite sqlite3
-npm install --save-dev nodemon
-```
+- **Node.js:** Required to run the application.
+- **npm:** Used to install and manage project dependencies. It is included with Node.js.
+- **Visual Studio Code:** Recommended for editing and managing project files.
+- **Postman:** Used to test API endpoints and verify responses.
+- **Git:** Used to clone the repository and manage version control.
 
-## Database Details
+**Note:** The application uses SQLite through its Node.js dependencies. A separate SQLite installation may not be required.
 
-**Database Name:** books.db
+### Steps to Run
 
-**Table Name:** book
+1. Clone the course repository or download the project.
 
-| Column | Data Type |
-|---|---|
-| id | INTEGER PRIMARY KEY |
-| title | TEXT |
-| author | TEXT |
-| price | INTEGER |
-| pages | INTEGER |
+2. Open the terminal in the `Lab-02` directory.
 
-The application creates the database and book table automatically when the server starts. It also inserts sample book records when the table is empty.
+3. Install the project dependencies:
 
-## Running the Application
+   ```bash
+   npm install
+   ```
 
-Start the server using:
+4. Start the development server:
 
-```bash
-node app.js
-```
+   ```bash
+   npm run dev
+   ```
 
-Or use Nodemon:
+5. Send requests through Postman using the local server URL:
 
-```bash
-npx nodemon app.js
-```
+   ```text
+   http://localhost:3000
+   ```
 
-Server URL:
+   Use the appropriate HTTP methods and endpoints to test the Books CRUD API.
 
-```text
-http://localhost:3000/
-```
+### Database Setup
+
+The project uses SQLite to store book records.
+
+- `books.db` is the SQLite database file.
+- `books.sql` contains SQL statements related to the database.
+
+The application connects to the database according to the implementation in `app.js`.
 
 ## API Endpoints
 
-### 1. Get All Books
-- Method: GET
-- URL: `http://localhost:3000/books/`
-- Description: Retrieves all books from the database.
+The following table describes the CRUD endpoints. Verify the exact paths and status codes against `app.js`.
 
-### 2. Get a Book by ID
-- Method: GET
-- URL: `http://localhost:3000/books/1/`
-- Description: Retrieves a particular book using its ID.
+| Method | Endpoint | Description | Expected Status |
+|---|---|---|---|
+| GET | `/books/` | Retrieves all books. | 200 OK |
+| GET | `/books/:id/` | Retrieves a book using its ID. | 200 OK |
+| POST | `/books/` | Adds a new book to the database. | 201 Created |
+| PUT | `/books/:id/` | Updates an existing book. | 200 OK |
+| DELETE | `/books/:id/` | Deletes a book using its ID. | 200 OK |
 
-### 3. Add a New Book
-- Method: POST
-- URL: `http://localhost:3000/books/`
-- Body (JSON):
+The application should also handle invalid requests and requests for books that do not exist, according to its implementation.
 
-```json
-{
-  "title": "Python Programming",
-  "author": "John Smith",
-  "price": 400,
-  "pages": 250
-}
-```
+## Screenshots
 
-- Description: Adds a new book to the database.
+The following screenshots demonstrate the API operations tested using Postman. Store them in the `screenshots/` directory.
 
-### 4. Update a Book
-- Method: PUT
-- URL: `http://localhost:3000/books/1/`
-- Body (JSON):
+### 1. GET All Books
 
-```json
-{
-  "title": "The Alchemist",
-  "author": "Paulo Coelho",
-  "price": 350,
-  "pages": 180
-}
-```
+Retrieves all book records from the database.
 
-- Description: Updates the details of an existing book.
+![GET all books](screenshots/GET_ALL.png)
 
-### 5. Delete a Book
-- Method: DELETE
-- URL: `http://localhost:3000/books/2/`
-- Description: Deletes a book using its ID.
+### 2. GET a Single Book
 
-## Testing
+Retrieves a specific book using its ID.
 
-All five API endpoints were tested using Postman.
+![GET one book](screenshots/GETONE.png)
 
-The database operations were implemented using SQLite and parameterized SQL queries with `?` placeholders to handle user input safely.
+### 3. POST a New Book
+
+Adds a new book record to the database.
+
+![POST book](screenshots/POST.png)
+
+### 4. PUT an Existing Book
+
+Updates the details of an existing book.
+
+![PUT book](screenshots/PUT.png)
+
+### 5. DELETE a Book
+
+Deletes a book record from the database.
+
+![DELETE book](screenshots/DELETE.png)
+
+### 6. Error Handling
+
+Demonstrates an error response for an invalid request or resource.
+
+![API error response](screenshots/ERROR.png)
+
+## CRUD Operations
+
+- **Create:** Adds new book records using the POST method.
+- **Read:** Retrieves all books or a specific book using GET.
+- **Update:** Modifies existing book records using PUT.
+- **Delete:** Removes book records using DELETE.
+
+## HTTP Status Codes
+
+- **200 OK:** The request was successful.
+- **201 Created:** A new resource was created successfully.
+- **400 Bad Request:** The request contains invalid input.
+- **404 Not Found:** The requested resource or endpoint was not found.
+- **500 Internal Server Error:** An unexpected server error occurred.
+
+The actual status codes depend on the responses implemented in the application.
+
+## Problems Faced and Solutions
+
+Document any errors encountered while developing the application, connecting to the database, or testing the API, along with the solutions applied.
+
+## Git and Repository Notes
+
+- The project is maintained in the course GitHub repository.
+- The `Lab-02/` folder contains the files specific to Lab 2.
+- The `.gitignore` file excludes `node_modules/` and `.env`.
+- The `node_modules/` directory must not be committed.
+- Screenshots are stored in the `screenshots/` directory.
+- Changes are committed regularly with meaningful commit messages.
+- The repository is public or shared with the faculty.
 
 ## Conclusion
 
-This lab helped me understand how to connect a Node.js application with an SQLite database and perform CRUD operations using Express.js routes. I also learned how to test backend APIs using Postman.
+The Books CRUD API was developed using Node.js, Express.js, and SQLite. It supports creating, retrieving, updating, and deleting book records. The API operations were tested using Postman.
