@@ -2,14 +2,13 @@
 
 ## Student Details
 
-- **Name:** A.Yogeshwari
-- **Registration Number:** 252U1R9011
+- **Name:** G.Nikitha
+- **Registration Number:** 252U1R9035
 - **Section:** CSE GAI-2A
 - **Course:** Backend Development Fundamentals
 - **Lab Number:** 02
 
 ## Live Deployment
-https://lab-02-qzaj.onrender.com
 
 ## Objective
 
@@ -48,7 +47,6 @@ Lab-02/
 
 ## Installation and Setup
 
-<<<<<<< HEAD
 ### Prerequisites
 
 - **Node.js:** Required to run the application.
@@ -56,13 +54,6 @@ Lab-02/
 - **Visual Studio Code:** Recommended for editing and managing project files.
 - **Postman:** Used to test API endpoints and verify responses.
 - **Git:** Used to clone the repository and manage version control.
-=======
-Install the project dependencies:
-
-```bash
-npm install
-```
->>>>>>> 34a415a255672e3338e27410a43a14960a596e7b
 
 **Note:** The application uses SQLite through its Node.js dependencies. A separate SQLite installation may not be required.
 
@@ -78,7 +69,6 @@ npm install
    npm install
    ```
 
-<<<<<<< HEAD
 4. Start the development server:
 
    ```bash
@@ -92,23 +82,6 @@ npm install
    ```
 
    Use the appropriate HTTP methods and endpoints to test the Books CRUD API.
-=======
-Start the server using the production script:
-
-```bash
-npm start
-```
-
-For local development with automatic restarts:
-
-```bash
-npm run dev
-```
-
-The server uses the hosting platform's `PORT` environment variable when available, and defaults to port `3000` for local use. The SQLite database path is resolved relative to `app.js`.
-
-Local server URL:
->>>>>>> 34a415a255672e3338e27410a43a14960a596e7b
 
 ### Database Setup
 
@@ -135,13 +108,7 @@ The application should also handle invalid requests and requests for books that 
 
 ## Screenshots
 
-<<<<<<< HEAD
 The following screenshots demonstrate the API operations tested using Postman. Store them in the `screenshots/` directory.
-=======
-- Description: Adds a new book to the database.
-- Required fields: non-empty `title` and `author`, non-negative integer `price`, and positive integer `pages`.
-- Success status: `201 Created`; invalid input returns `400 Bad Request`.
->>>>>>> 34a415a255672e3338e27410a43a14960a596e7b
 
 ### 1. GET All Books
 
